@@ -28,8 +28,11 @@ function SingleLevelMenu({
   return (
     <div>
       {checkPermission.includes(permission) ? (
-        <LinkNoStyle to={path} onClick={closeToggle}>
-          <ButtonMenu isActive={location.pathname === path ? true : false}>
+        <LinkNoStyle to={path}>
+          <ButtonMenu
+            isActive={location.pathname === path ? true : false}
+            onClick={closeToggle}
+          >
             <span> {icon} </span>
             <span> {title} </span>
           </ButtonMenu>

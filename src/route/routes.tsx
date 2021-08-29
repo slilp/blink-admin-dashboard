@@ -8,16 +8,30 @@ const Menu21 = lazy(() => import("../page/Menu21"));
 const Menu22 = lazy(() => import("../page/Menu22"));
 const Menu3 = lazy(() => import("../page/Menu3"));
 
+export interface RouteInfo {
+  path: string;
+  name: string;
+  component: React.LazyExoticComponent<() => JSX.Element>;
+  permission: string;
+}
+
+interface IRoute {
+  routes: RouteInfo[];
+  redirect: RouteInfo;
+}
+
 const routes = {
   login: {
     path: "/login",
     name: "Login",
     component: Login,
+    permission: "",
   },
   register: {
     path: "/register",
     name: "Register",
     component: Register,
+    permission: "",
   },
   dashboard: {
     path: "/",
@@ -51,14 +65,14 @@ const routes = {
   },
 };
 
-const guest = {
+const guest: IRoute = {
   routes: [routes.login, routes.register],
   redirect: {
     ...routes.login,
   },
 };
 
-const member = {
+const member: IRoute = {
   routes: [
     routes.menu1,
     routes.menu21,

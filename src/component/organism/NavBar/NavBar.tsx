@@ -36,8 +36,13 @@ function NavBar() {
           <Toolbar>
             <img className={classes.logo} src={Logo} alt=""></img>
             <div className={classes.grow} />
-            <IconButton edge="start" color="inherit" aria-label="menu">
-              <MenuIcon onClick={toggleDrawer()} />
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              onClick={toggleDrawer()}
+            >
+              <MenuIcon />
             </IconButton>
           </Toolbar>
         </Hidden>

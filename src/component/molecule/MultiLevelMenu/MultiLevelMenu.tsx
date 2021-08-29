@@ -60,8 +60,9 @@ function MultiLevelMenu({
                 {items.map((item: SubMultiLevelMenuProps) => {
                   if (checkPermission.includes(item.permission)) {
                     return (
-                      <LinkNoStyle to={item.path} onClick={closeToggle}>
+                      <LinkNoStyle to={item.path} key={item.permission}>
                         <ButtonMenu
+                          onClick={closeToggle}
                           isActive={
                             location.pathname === item.path ? true : false
                           }

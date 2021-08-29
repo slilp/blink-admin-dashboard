@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { useAuthSelector } from "../state/selector";
 import permissionRoutes from "./routes";
+import { Loader } from "../component/atomic";
 import { Layout } from "../component/template";
 
 const AppRoute: React.FC = () => {
@@ -9,7 +10,7 @@ const AppRoute: React.FC = () => {
   const { guest, member } = permissionRoutes;
   return (
     <div>
-      <Suspense fallback={<div>LOADING...</div>}>
+      <Suspense fallback={<Loader></Loader>}>
         {isAuthenticated ? (
           <Layout>
             <Switch>
@@ -25,6 +26,8 @@ const AppRoute: React.FC = () => {
                       />
                     )
                   );
+                } else {
+                  return null;
                 }
               })}
               <Route path="*">

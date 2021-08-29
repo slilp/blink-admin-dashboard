@@ -19,6 +19,7 @@ function SideBar() {
           if (menu.sub.length === 0) {
             return (
               <SingleLevelMenu
+                key={menu.permission}
                 permission={menu.permission}
                 title={menu.title}
                 path={menu.path}
@@ -29,6 +30,7 @@ function SideBar() {
           } else {
             return (
               <MultiLevelMenu
+                key={menu.permission}
                 permission={menu.permission}
                 title={menu.title}
                 icon={menu.icon}
